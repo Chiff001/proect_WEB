@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 style="font-size: 40px;"><b>Приюты для животных</b></h1>
+ <form action="" method="POST">
+     <header>
+        <nav class="navbar navbar-light bg-light">
+            <p align="middle">В России существует 412 городских приютов для бездомных животных, в которых живут 114 тысяч собак и кошек. Все питомцы осмотрены ветеренаром, им сделаны прививки от бешенства и других заболеваний, они обработаны от блох и паразитов. Также, с ними занимается специалист по социализации, чтобы животное могло комфортно чувствовать себя в новой семье.</p>
+<p align="middle">Каждый желающий может обратиться в приют для поиска домашнего питомца, также приюты будут рады любой помощи в виде кормов, лекарств и товаров первой необходимости. Нуждаются приюты и в волонтерской помощи.</p>
+<p align="middle">Данное приложение помогает найти приют, расположенный рядом с вашим домом, по конкретному адресу или по названию.
+Также, в приложении есть ссылки на онлайн-каталог бездомных животных, ресурс оказания финансовой помощи и ресурс волонтерской помощи.</p>
+        </nav>
+    </header>
+     {{ form.search.label }}
+     {{ form.search() }}
+
+     <p>
+         {{ form.csrf_token }}
+        {{ form.address.label }}<br>
+        {{ form.address(class="form-control") }}<br>
+        {% for error in form.address.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+     <p align="middle" style="font-size: 30px;"><a href="https://rayfund.ru/get_involved/donate/"><b>Финансовая помощь приютам</b></a></p>
+     <p align="middle" style="font-size: 30px;"><a href="https://vsemposobake.ru/volunteers/"><b>Стать волонтером в приюте</b></a>
+         <p align="middle" style="font-size: 30px;"><a href="http://dorinvest.ru/index.php/activities/priyuty-dlya-beznadzornykh-zhivotnykh/katalog-zhivotnykh-iz-priyuta"><b>Найти четвероногово друга в онлайн каталоге</b></a><br>
+
+ </form>
+
+{% endblock %}

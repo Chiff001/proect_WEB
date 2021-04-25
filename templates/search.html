@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <img width="500" height="400" align='right' src='static/img/map.png'>
+    {% if x == '1' %}
+    {% for name, address  in spisok.items() %}
+        <p style="color:#A52A2A;font-size: 30px;">{{address[0]}}. {{name}}:</p>
+        {% for i in range(1, 4) %}
+            {% if i == 1 %}
+                <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
+            {% elif i == 2 and address[i] != 0 %}
+                <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+            {% elif i == 3 and address[i] != 0 %}
+                <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% elif x == '2' %}
+        {% for name, address  in spisok.items() %}
+            <p style="color:#A52A2A;font-size: 30px;">{{address[0]}}. {{name}}:</p>
+            {% for i in range(1, 4) %}
+                {% if i == 1 %}
+                    <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
+                {% elif i == 2 and address[i] != 0 %}
+                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+                {% elif i == 3 and address[i] != 0 %}
+                    <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
+                {% endif %}
+            {% endfor %}
+            <p style="color:#A52A2A;font-size: 20px;">- Расстояние от указзанного адреса до приюта: {{address[-1]}} метров</p>
+        {% endfor %}
+    {% else %}
+        {% for name, address  in spisok.items() %}
+            <p style="color:#A52A2A;font-size: 30px;">{{address[0]}}. {{name}}:</p>
+            {% for i in range(1, 4) %}
+                {% if i == 1 %}
+                    <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
+                {% elif i == 2 and address[i] != 0 %}
+                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+                {% elif i == 3 and address[i] != 0 %}
+                    <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    <a style="color:blue;font-size: 20px;" href="http://127.0.0.1:8080/review">Если вам понравился сайт, оцените его</a>
+{% endblock %}
