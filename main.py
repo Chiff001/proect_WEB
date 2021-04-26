@@ -3,13 +3,15 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import InputRequired
 from finder import search1, search2, search3
-import db_session
+from db_session import User
+import random
 
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 adr = ''  # создаю глобальные переменные адреса и параметра поиска
 srch = ''
+education = ''
 
 
 class Start(FlaskForm):
@@ -98,11 +100,14 @@ def results():  # результаты поиска
 
 @app.route('/review', methods=['GET', 'POST'])
 def review():  # оставить отзыв
+    global education
+    education = random.randint(1, 3)
     return render_template('review.html')
 
 
 @app.route('/thanks')
 def thanks():  # благодарность за отзыв
+    user = User(number=education)
     return render_template('Thanks.html')
 
 
