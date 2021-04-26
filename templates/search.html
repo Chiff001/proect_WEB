@@ -9,7 +9,7 @@
             {% if i == 1 %}
                 <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
             {% elif i == 2 and address[i] != 0 %}
-                <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+                <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a><br>
             {% elif i == 3 and address[i] != 0 %}
                 <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
             {% endif %}
@@ -22,7 +22,7 @@
                 {% if i == 1 %}
                     <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
                 {% elif i == 2 and address[i] != 0 %}
-                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a><br>
                 {% elif i == 3 and address[i] != 0 %}
                     <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
                 {% endif %}
@@ -36,7 +36,7 @@
                 {% if i == 1 %}
                     <p style="color:#A52A2A;font-size: 20px;">- Адрес: {{address[i]}}</p>
                 {% elif i == 2 and address[i] != 0 %}
-                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a>
+                    <a style="color:#A52A2A;font-size: 20px;" href="{{address[i]}}">- Сайт: {{address[i]}}</a><br>
                 {% elif i == 3 and address[i] != 0 %}
                     <p style="color:#A52A2A;font-size: 20px;">- Телефоны: {{(', ').join(address[i])}}</p>
                 {% endif %}
